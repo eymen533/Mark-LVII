@@ -1,0 +1,20 @@
+[Unit]
+Description=U.S.A.K. Home Assistant Bluetooth bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=usak
+SupplementaryGroups=dialout
+WorkingDirectory=/opt/usak-smart-home
+ExecStart=/opt/usak-smart-home/.venv/bin/python /opt/usak-smart-home/raspberry_pi_bridge.py --port /dev/serial0 --baudrate 9600 --config /etc/usak/home_assistant.json
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

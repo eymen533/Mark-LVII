@@ -1,0 +1,8 @@
+actions/ha_token.txt
+.env
+.env.*
+__pycache__/
+*.pyc
+
+config/api_keys.json
+memory/long_term.json
